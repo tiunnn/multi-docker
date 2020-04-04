@@ -1,0 +1,24 @@
+language: generic 
+sudo: required 
+services:
+    - docker 
+
+before_install:
+    - docker build -t loesakb/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+    - docker run -e CI=true loesakb/react-test npm run test -- --coverage
+
+after_success:
+    - docker build -t loesakb/multi-client ./client
+    - docker build -t loesakb/multi-nginx ./nginx
+    - docker build -t loesakb/multi-server ./server
+    - docker build -t loesakb/multi-worker ./worker
+
+    #docker
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin 
+
+    - docker push loesakb/multi-client
+    - docker push loesakb/multi-nginx
+    - docker push loesakb/multi-server 
+    - docker push loesakb/multi-worker
