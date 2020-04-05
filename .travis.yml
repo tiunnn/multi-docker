@@ -27,8 +27,8 @@ deoloy:
     edge: true
     provider: elasticbeantalk
     region: "us-east-2"
-    app: "multi-docker"
-    env: "MultiDocker-env"
+    app: "muti-docker"
+    env: "MutiDocker-env"
     backet_name: "elasticbeanstalk-us-east-2-163853346091"
     backet_path: "docker-multi"
     on:
