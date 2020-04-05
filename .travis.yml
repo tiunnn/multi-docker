@@ -22,3 +22,18 @@ after_success:
     - docker push loesakb/multi-nginx
     - docker push loesakb/multi-server 
     - docker push loesakb/multi-worker
+
+deoloy:
+    edge: true
+    provider: elasticbeantalk
+    region: "us-east-2"
+    app: "multi-docker"
+    env: "MultiDocker-env"
+    backet_name: "elasticbeanstalk-us-east-2-163853346091"
+    backet_path: "docker-multi"
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    
+
