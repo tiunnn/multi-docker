@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "ansi-styles": "^3.2.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "buble": "^0.19.6",
     "docz": "^2.3.0",
     "docz-theme-default": "^1.2.0",
